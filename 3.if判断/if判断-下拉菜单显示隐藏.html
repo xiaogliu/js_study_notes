@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 鼠标移入移出 </title>
+<style>
+#div1 {
+    width: 200px;
+    height: 200px;
+    background: red;
+    display: none;
+}
+</style>
+<script>
+function showHide() {
+    var oDiv=document.getElementById("div1");
+
+    if (oDiv.style.display=="block") {
+        oDiv.style.display="none";
+    }
+
+    else {
+        oDiv.style.display="block";
+    }
+}
+</script>
+</head>
+<body>
+    <input type="button" value="showHide" onclick="showHide()" />
+    <div id="div1">
+    </div>
+</body>
+</html>
+
