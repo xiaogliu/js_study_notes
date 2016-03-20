@@ -1,0 +1,65 @@
+#初识函数
+- 函数和css中的class很像：将某一个功能封装进去，用的时候直接调用就可以了。
+- 注意，css当中名值对之间是冒号，比如 
+```
+width: 200px; //css当中名值对之间用冒号
+```
+但js当中是用等号，表示赋值，比如：
+```
+document.getElementById("div1").style.width="300px"; //js当中名值对之间用等号
+```
+这些问题都很小，当发生错误以后debug都不容易，所以一定要细心。当然经常练习熟悉以后也是可以避免犯错
+
+- 不管是js，还是css都有一个习惯，js函数中的变量，甚至函数本身都是重用的代表。
+ > 重用，相同的代码只写一次。
+
+- 变量，所谓变量其实就是给东西起了一个别名，见变量如见东西本身。
+ > 变量---别名
+- 函数的基本格式
+
+ > //函数声明
+ > function functionname() {
+ >    代码
+ > }
+ > 
+ > //函数调用的时候直接写函数名就OK了
+ > functionname()
+  
+ 比如下面代码：
+ ```
+<!-- simple mouse event, test function and variable-->
+<!DOCTYPE html
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 鼠标移入移出 </title>
+<style>
+#div1 {
+    width: 200px;
+    height: 200px;
+    background: red;
+}
+</style>
+<script>
+function toGreen() { // 函数声明
+    var oDiv=document.getElementById("div1"); // 变量声明
+
+    oDiv.style.width="300px"; // 变量调用
+    oDiv.style.height="300px";
+    oDiv.style.background="green";
+}
+function toRed() {
+    var oDiv=document.getElementById("div1");
+
+    oDiv.style.width="200px";
+    oDiv.style.height="200px";
+    oDiv.style.background="red";
+}
+</script>
+</head>
+<body>
+    <div id="div1" onmouseover="toGreen()" onmouseout="toRed()"> <!-- 通过函数名调用函数 -->
+    </div>
+</body>
+</html>
+ ```
