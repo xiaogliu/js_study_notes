@@ -1,0 +1,50 @@
+<!-- 选项卡 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> ex </title>
+<style>
+#div1 .active {
+    background: yellow;
+}
+#div1 div {
+}
+</style>
+<script>
+window.onload=function() {  
+    
+    //这里建立变量的原则：用到什么就将什么声明个变量，方便后续调用
+    var oDiv=document.getElementById('tab'); // 声明完记得加个分号，语句？？    
+    var aLi=oDiv.getElementsByTagName('li');    
+    var oTxt=oDiv.getElementsByTagName('div')[0]; // 声明变量时直接选哪个 
+
+}
+
+</script>
+</head>
+<body>
+    <div id='tab' class='calendar'> <!-- 这里加个div并命名css中操作的时候方便 -->
+        <ul>
+            <li class='active'><h2>1</h2><p>JAN</p></li>
+            <li><h2>2</h2><p>FEB</p></li>
+            <li><h2>3</h2><p>MAR</p></li>
+            <li><h2>4</h2><p>APR</p></li>
+            <li><h2>5</h2><p>MAY</p></li>
+            <li><h2>6</h2><p>JUN</p></li>
+            <li><h2>7</h2><p>JUL</p></li>
+            <li><h2>8</h2><p>AUG</p></li>
+            <li><h2>9</h2><p>SEM</p></li>
+            <li><h2>10</h2><p>OCT</p></li>
+            <li><h2>11</h2><p>NOV</p></li>
+            <li><h2>12</h2><p></p>DEC</li>
+        </ul>
+        <div class='text'>
+            <h2> 1月活动 <h2>
+            <p> 快过年了，大家可以商量去哪玩~ </p>
+        </div>
+    <div>
+</body>
+</html>
+
+
