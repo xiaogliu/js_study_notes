@@ -106,7 +106,7 @@ window.onload=function() { // 加载完整个document后执行下js面代码
 </script>
 </head>
 <body>
-    <div id='div1'>  <!-- 这里加个div并命名css中操作的时候方便 -->
+    <div id='div1'>  <!-- 这里加个div并命名css中操作的时候方便,js操作也方便 -->
         <input class='active'active type="button" value='股文杂谈' />
         <input type='button' value='新闻精选' />
         <input type='button' value='涨停分析' />

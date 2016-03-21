@@ -1,26 +1,43 @@
-<!-- 选项卡 -->
+<!-- 简易日历 -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title> ex </title>
-<style>
-#div1 .active {
-    background: yellow;
-}
-#div1 div {
-}
-</style>
+    <link rel='stylesheet' href='zns_style.css'> <!-- type可以省略，但rel不能 -->
+
 <script>
 window.onload=function() {  
     
     //这里建立变量的原则：用到什么就将什么声明个变量，方便后续调用
+    var arr=[
+        ' 快过年了，大家可以商量去哪玩~ ',
+        ' add feb event ', // 忘记加逗号，出错
+        ' add mar event ', // 用户添加内容
+        ' add apr event ', 
+        ' add may event ',
+        ' add jun event ',
+        // 未定义的月份，显示undefined
+        ]
     var oDiv=document.getElementById('tab'); // 声明完记得加个分号，语句？？    
     var aLi=oDiv.getElementsByTagName('li');    
-    var oTxt=oDiv.getElementsByTagName('div')[0]; // 声明变量时直接选哪个 
+    var oTxt=oDiv.getElementsByTagName('div')[0]; // 数组，用的就是第一个 
 
+    for(var i=0; i<aLi.length; i++) {
+        aLi[i].index=i;
+        aLi[i].onmouseover=function() { // 写成了mouseover
+            for(var i=0; i<aLi.length; i++) { // 嵌套一个函数，完事后就结束
+                aLi[i].className='';
+            }                                // 嵌套的函数结束
+
+            this.className='active';
+
+            // innerHTML里面的值必须在一行写完？？？
+            // arr[this.index]用引号包围，错，因为这是变量
+            oTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+        }
+    }
 }
-
 </script>
 </head>
 <body>
@@ -47,4 +64,12 @@ window.onload=function() {
 </body>
 </html>
 
+<!--
+1. onmouseover事件只写了mouseover,自然错！
+2. js代码块中的函数大括号有漏写！！足够低级，成对的东西一次写全，js还好，
+   有提示，尤其html中。
+3. innerHTML里面的值必须在一行写完？？？换行写出错
+4. 数组元素之间忘记加逗号。
+5. 变量加上引号，变成了字符串，36行
+-->
 
