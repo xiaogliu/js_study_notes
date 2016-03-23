@@ -400,9 +400,172 @@ window.onload=function() { // 父函数
 
 
 
+####运算符（部分常用）
+- 算数：加`+`，减 `-`，乘 `*`，除 `/`，取模（取余）`%`
+> `%`即取余数，比如`12%5 //2`,再比如`13%6 //1`。取余非常有用，比如隔变色，秒转时间。
+```
+// 隔行变色
+<script>
+window.onload=function() {
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++) { // 做个循环就可以吧所有的li选出来了！选择！
+        if(i%2==0) {
+            aLi[i].style.background='#ccc';
+        }
+        else {
+            aLi[i].style.background='';
+        }
+    }
+}
+</script>
+```
+```
+// 秒转时间
+var a=1333;
+alert(parseInt(a/60)+'分'+a%60+'秒');
+```
 
+- 赋值：`=`，`+=`，`-=`，`+=`，`/=`，`%=`
+> 自增的写法：`i=i+1` or `i+=1` or `i++`，其中，`i++`每次只能加一个，要想循环加大于1的只能采取这样的方法，如每次+3，则`i=i+3` or `i+=3`.
 
+- 关系：`<`，`>`，`<=`，`>=`，`==`，`===`，`!=`（不等于），`!==`
 
+```
+alert(5!=7); // true
 
+alert(5!=5); // false
+```
 
+- 逻辑：`&&`与，`||`或；`!`否
 
+```
+// &&应用：判断是不是两位数
+var a=7
+
+if(a>9 && a<100) {
+	alert('两位数')
+    }
+
+else {
+	alert('不是两位数')
+    }
+// 不是两位数
+
+-----------------------------------------
+
+//!很好用，可以颠倒黑白，扭转乾坤，应用
+
+alert(!true); // false
+
+alert(!!true); // true
+
+```
+- 运算优先级：`()`括号
+
+####程序流程控制（就是`if`，`for`这些结构）
+
+- 判断：`if`，`switch`,`?：`
+> - `if`里面可以有无数个`else if`，但只能有一个`else`
+> - `switch`语法如下
+> ```
+> // switch的语法
+> switch(变量) {
+> 	case 值1：
+> 		语句1
+> 		break；
+> 	case 值2：
+> 		语句2
+> 		break；
+> 	....
+> 	default: // 上面没有符合的语句执行语句n，可以省略
+> 		语句n；
+> 	}
+> // ex，登录界面根据男女写欢迎语
+> var name='abc'
+> var sex='男'
+> swithc(sex) {
+> 	case '男'：
+> 		alert(name+'先生，您好！');
+> 		break;
+> 	case '女'：
+> 		alert(name+'女士，您好！');
+> 		break;
+> 	default:	
+> 		alert(name+'您好！');
+> 	}
+> ```
+> - `?：`三目运算符（三元运算符），`if` `else`的简写，做判断用（但复杂判断还是用`if`，用`?：`会很乱），三目语法如下：
+> ```
+> // ?:的语法
+> 条件？语句1：语句2
+> // 例子，判断单双数
+> var a=35;
+> a%2==0?alert('双数')：alert('单数'); // a%2==0不需要加括号
+> ```
+
+- 循环：`for`，`while`
+
+- 跳出：`break`中断,`continue`继续，循环里面特有的两个语句，作用见下面代码：
+```
+// break
+for(var i=0; i<5; i++) {
+	if(i==3) {
+    	break; // 中断整个循环
+    }
+    alert(i); // 只能弹出到2，当i=3时，break
+}
+// continue
+for(var i=0; i<5; i++) {
+	if(i==3) {
+    	continue; // 只中断本次循环，后面的循环continue
+    }
+    alert(i); // 只是没有弹出到3，其他都弹出
+}
+```
+- 什么是真，什么是假（暂时用不到，课程后面会大量用到。干吗用？）：
+> - 真：true，非零数字，非空字符串（空格也是非空的），非空对象（document也是对象哇）
+> - 假：false，数字零，空字符串，空对象（null），undefined
+
+# JSON
+- json是为了js而生的,是存储js**数据**的一种方法。json和数组有点像，也是**用来存东西的**，但json使用`{}`，用法见下：
+> ```
+> /*var a=12;
+> var b=5;
+> var c='abc';
+> */
+> var json={a: 12, b: 5, c: 'abc'}; // 数据之间用逗号分开
+> 
+> json.b++; // 放在json里面的数据可以像正常变量一样操作，比如++
+> 
+> alert(json.b); // 6
+> ```
+
+- json和数组的关系及区别
+> ```
+> // 字符串和数字之间的关系
+> var json={a: 12, b: 5, c: 7};
+> var arr=[12, 5, 7]
+> 
+> alert(json['a']); // 12，json的下表是个字符串（方括号可以代替所有js里面的点）
+> 
+> alert(arr[0]); // 12，数组的下表是个数字
+> 
+> // json没有length属性，循环用 for in，见下
+> var json={a: 12, b: 5, c: 7};
+> var arr=[12, 5, 7]
+> d
+> for(var i in arr) {
+> 	alert('第'+i+'个东西'+arr[i]); // 第0个东西：12
+> 	}
+> 	
+> for(var i in json) {
+> 	alert('第'+i+'个东西'+json[i]); // 第a个东西：12（为啥不是json['i']？）
+> 	}
+> 	
+> 	
+> /* 关于循环的建议（后面会解释为什么）
+> 数组: 还是用for 0 length
+> json： for in
+> */
+> 
+> ```
