@@ -1,0 +1,29 @@
+<!-- 不定参求和 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> ex </title>
+<script>
+window.onload=function() {
+    function sum() {
+        //alert(arguments.length); // 3,因为下面sum中有三个参数
+        //alert(arguments[0]); // 2,数组的第0个元素
+        var result=0;
+
+        for(var i=0; i<arguments.length; i++) {
+            result+=arguments[i];
+        }
+
+        return result;
+    }
+
+    // sum里面最后一个参数后面不能有逗号，且同一个数据之间不能有空格，4 2，出错
+    alert(sum(2, 3, 4, 2, 3, 42, 3, 42, 3, 42, 3, 42, 3, 42, 3, 42));
+}
+</script>
+</head>
+<body>
+</body>
+</html>
+

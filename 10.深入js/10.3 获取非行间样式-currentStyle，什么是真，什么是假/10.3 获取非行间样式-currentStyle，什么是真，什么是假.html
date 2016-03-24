@@ -1,0 +1,42 @@
+<!-- 获取非行间样式 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> ex </title>
+    <style>
+    #div1 {
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+    </style>
+    <script>
+    window.onload=function() {
+        var oDiv=document.getElementById('div1');
+
+        // alert(oDiv.style.width); // 获取不了，style只能获取行间样式
+        // 但凡好东西一定不兼容。。。火狐不兼容currentStyle
+        // alert(oDiv.currentStyle.width);
+
+        // 火狐支持getComputedStyle(argument1, argument2),argument2随便
+        // alert(getComputedStyle(oDiv, null).width);
+
+        // 兼容处理：什么是真，什么是假。通过if判断，执行不同代码
+        if(oDiv.currentStyle) { // 非空，真
+            // IE
+            alert(oDiv.currentStyle.width);
+        }
+
+        else { // undefined，假
+            // 火狐
+            alert(getComputedStyle(oDiv, null).width);
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id='div1'>
+</body>
+</html>
+
