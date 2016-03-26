@@ -1,0 +1,60 @@
+<!-- 数码时钟/思路：动态设置图片路径 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> ex </title>
+<script>
+function toDou(n) { // 当时间小于10时补零
+    if(n<10) {
+        return '0'+n;
+    }
+
+    else {
+        return ''+n; // 和空字符串相加可确保返回出去的一定是字符串
+    }
+}
+window.onload=function() {
+    var aImg=document.getElementsByTagName('img');
+
+    /*等1s之后才能执行，应为定时器并不是马上执行的
+       setInterval(function() {
+            // var str='123456'
+            var oDate=new Date()
+            var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+
+            for(var i=0; i<aImg.length; i++) {
+            aImg[i].src='img/'+str[i]+'.png'; // str[i]不兼容低版本浏览器，用str.charAt()
+            };
+
+            },1000);
+    */
+    function tick() {
+            // var str='123456'
+            var oDate=new Date()
+            var str=toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+
+            for(var i=0; i<aImg.length; i++) {
+            aImg[i].src='img/'+str.charAt(i)+'.png';
+            };
+
+            };
+
+    setInterval(tick, 1000);
+    tick(); // 在onload里面先执行一遍
+
+};
+</script>
+</head>
+<body style='background:black; color:white; font-size: 50px;'>
+    <img src='img/0.png' />
+    <img src='img/0.png' />
+    :
+    <img src='img/0.png' />
+    <img src='img/0.png' />
+    :
+    <img src='img/0.png' />
+    <img src='img/0.png' />
+</body>
+</html>
+
