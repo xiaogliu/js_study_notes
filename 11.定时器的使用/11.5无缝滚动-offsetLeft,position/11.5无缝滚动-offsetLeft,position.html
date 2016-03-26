@@ -1,0 +1,62 @@
+<!-- 无缝滚动
+有个bug：当单击两次开始的时候，就关不了定时器了 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+#div1 {
+    width: 800px;
+    height: 50px;
+    left: 200px;
+    background: #ffcccc;
+    position: absolute; /* 如果position不设置为absolute不会动！！为啥？ */
+    overflow: hidden;
+}
+#ul1 {
+    width: 50px;
+    height: 50px;
+    left: 0px;
+    background: #99cccc;
+    position: absolute; /* 如果position不设置为absolute不会动！！为啥？ */
+    margin: 0px; /* 为什么margin无效？之前注释问题，用//且没有尾注释符 */
+    padding: 0px;
+}
+</style>
+<script>
+window.onload=function() {
+    var oDiv=document.getElementById('div1');
+    var oUl=document.getElementById('ul1');
+    var oBtn1=document.getElementById('btn1')
+    var oBtn2=document.getElementById('btn2')
+    var timer=null;
+
+    oBtn2.onclick=function() {
+        timer=setInterval(function() {
+                if(oUl.offsetLeft>'790') { // 加上px就无效了！
+                oUl.style.left='-20px';
+                };
+
+                oUl.style.left=oUl.offsetLeft+10+'px';
+                }, 30);
+    };
+
+    oBtn1.onclick=function() {
+        clearInterval(timer);
+    };
+};
+</script>
+</head>
+<body>
+    <p> 定时器项目已经做了数码时钟以及延时提示框，无缝滚动感觉很low。不做。仅仅
+        最基本的移动。 
+    </p>
+    <input type='button' value='start' id='btn2'/>
+    <input type='button' value='stop' id='btn1'/>
+    <div id='div1'>
+        <ul id='ul1' onclick='alert("ul的left:"+this.offsetLeft);'></ul> <!-- 注意单双引号交替-->
+    </div>
+</body>
+</html>
+
