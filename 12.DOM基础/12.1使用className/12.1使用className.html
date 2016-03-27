@@ -1,0 +1,30 @@
+<!-- 使用className选择所需元素 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+</style>
+<script>
+window.onload=function() {
+    var aLi=document.getElementsByTagName('li');
+
+    for(var i=0; i<aLi.length; i++) {
+        if(aLi[i].className=='box') {
+            aLi[i].style.background='red';
+        };
+    };
+};
+</script>
+</head>
+<body>
+    <ul id='ul1'>
+        <li class='box'></li>
+        <li class='box'></li>
+        <li></li>
+        <li class='box'></li>
+        <li></li>
+</body>
+</html>
+
