@@ -1,0 +1,59 @@
+<!-- 排序 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+</style>
+    <script>
+    window.onload=function() {
+        var oBtn1=document.getElementById('btn1');
+        var oUl1=document.getElementById('ul1');
+
+        oBtn1.onclick=function(){
+            var aLi=oUl1.getElementsByTagName('li');
+
+            // sort()是array特有的属性，本质上aLi不是array，而是元素集合
+            // 当然有length，并且用方括号表示
+            // aLi.sort(); 
+            var arr=[];
+
+            for(var i=0; i<aLi.length; i++) {
+                arr[i]=aLi[i]; // 将aLi中的元素放到数组中，这样就是用sort()
+            };
+
+            arr.sort(function(li1, li2) {
+                    var n1=parseInt(li1.innerHTML); // 转化为数字
+                    var n2=parseInt(li2.innerHTML); // 尽可能不要以来隐式数据转换
+
+                    return n1-n2; // 这已经是在比较了，请看10.深入js
+            });
+
+            //alert(arr[0].innerHTML); // arr已经排好序了，但li并没有在网页上显示出来
+
+            for(var i=0; i<arr.length; i++) {
+                alert('把'+arr[i].innerHTML+'插入到最后');
+                oUl1.appendChild(arr[i]); // appendChild()先删除，再添加
+            };
+        };
+    };
+    </script>
+    </head>
+    <body>
+        <input id='btn1' type='button' value='排序' />
+        <ul id='ul1'>
+            <li> 2 </li>
+            <li> 7 </li>
+            <li> 33 </li>
+            <li> 66 </li>
+            <li> 29 </li>
+            <li> 998 </li>
+            <li> 3345 </li>
+            <li> 75 </li>
+            <li> 87 </li>
+        </ul>
+    </body>
+    </html>
+
+
