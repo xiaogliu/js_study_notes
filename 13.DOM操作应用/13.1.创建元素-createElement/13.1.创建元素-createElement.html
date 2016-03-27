@@ -1,0 +1,27 @@
+<!-- 创建元素 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+</style>
+<script>
+window.onload=function() {
+    var oBtn1=document.getElementById('btn1');
+    var oUl1=document.getElementById('ul1');
+
+    oBtn1.onclick=function() {
+        var oLi=document.createElement('li'); // 1.创建元素
+        
+        oUl1.appendChild(oLi); // 2.添加到父节点  父级.appendchild(子节点)
+    };
+};
+</script>
+</head>
+<body>
+    <input id='btn1' type='button' value='创建' />
+    <ul id='ul1'></ul>
+</body>
+</html>
+

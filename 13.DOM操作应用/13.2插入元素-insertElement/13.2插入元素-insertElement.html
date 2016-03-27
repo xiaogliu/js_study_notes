@@ -1,0 +1,43 @@
+<!-- 插入元素 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+</style>
+<script>
+window.onload=function() {
+    var oBtn1=document.getElementById('btn1');
+    var oUl1=document.getElementById('ul1');
+    var oTxt1=document.getElementById('txt1');
+
+    oBtn1.onclick=function() {
+        var oLi=document.createElement('li'); 
+        var aLi=oUl1.getElementsByTagName('li');
+
+        oLi.innerHTML=oTxt1.value; // 将text框中的文字放在新创建的li里面
+
+
+        if(aLi.length>0) {
+            oUl1.insertBefore(oLi, aLi[0]);
+        } // 注意：这里没有分号，一句话还没完，加完else成了不能识别的函数！！
+
+        else {
+            oUl1.appendChild(oLi);         
+        };
+    };
+};
+</script>
+</head>
+<body>
+    <input id='txt1' type='text'/>
+    <input id='btn1' type='button' value='创建' />
+    <ul id='ul1'></ul>
+</body>
+</html>
+
+<!-- 
+    1.if-else合起来为一句，中间加分号出错！！！！基础概念！
+
+    -->
