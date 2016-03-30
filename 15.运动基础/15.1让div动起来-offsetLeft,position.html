@@ -1,5 +1,6 @@
 <!-- 无缝滚动
-有个bug：当单击两次开始的时候，就关不了定时器了 -->
+有个bug：当单击两次开始的时候，就关不了定时器了
+已解决，开始心定时器之前关掉其他定时器，37行 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,17 +31,19 @@ window.onload=function() {
     var oUl=document.getElementById('ul1');
     var oBtn1=document.getElementById('btn1')
     var oBtn2=document.getElementById('btn2')
-    var timer=null;
+    var timer=null; // 空对象，并没有真正赋值，占位符啦~~
 
     oBtn2.onclick=function() {
-        clearInterval(timer); // 保证只有一个定时器
+        clearInterval(timer); // 保证只有一个定时器打开，避免单击开始速度加快
         timer=setInterval(function() {
-                if(oUl.offsetLeft>'790') { // 加上px就无效了！
+                var speed=1;
+
+                if(oUl.offsetLeft>='790') { // 加上px就无效了！
                 oUl.style.left='-20px';
                 };
 
-                oUl.style.left=oUl.offsetLeft+10+'px';
-                }, 30);
+                oUl.style.left=oUl.offsetLeft+speed+'px'; // 通过speed控制速度
+                }, 1);
     };
 
     oBtn1.onclick=function() {
@@ -62,5 +65,6 @@ window.onload=function() {
 </html>
 
 <!--
-1.37行代码debug文件开头提出的bug，运动基础看到如何debug。
+1.该程序可以扩展：添加个input，然后在外部控制速度，只要将input输入的值导入
+速度变量即可。
 -->

@@ -1,0 +1,105 @@
+<!-- 隐藏显示侧边栏 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> ex </title>
+<style>
+#div1 {
+    width: 200px;
+    height: 600px;
+    background: #99cccc;
+    /* 如果position不设置为absolute不会动！！为啥？因为相对定位受文档流约束 */
+    position: absolute;
+    left: -200px;
+}
+#div1 span {
+    width: 30px;
+    height: 80px;
+    background: #ffcccc;
+    position: absolute; 
+    right: -30px; // 不明这个参数是什么功能
+    top: 60px; // 没有效果？
+}
+</style>
+<script>
+window.onload=function() {
+    var oDiv=document.getElementById('div1');
+    var timer=null; // 空对象，并没有真正赋值，占位符啦~~
+
+    oDiv.onmouseover=function() {
+        startMove(0);
+    };
+    
+    oDiv.onmouseout=function() {
+        startMove(-200);
+    };
+
+    function startMove(iTarget) { // 只保留iTarget一个参数
+        var speed=0;
+
+        if(oDiv.offsetLeft>iTarget) {
+            speed=-10;
+        }
+
+        else {
+            speed=10;
+        };
+
+        clearInterval(timer);
+        timer=setInterval(function() {
+                if(oDiv.offsetLeft==iTarget) {
+                    clearInterval(timer);
+                }
+
+                else {
+                    oDiv.style.left=oDiv.offsetLeft+speed+'px'; // 把速度设置为变量
+                };
+        }, 30);
+    };
+
+    /*oDiv.onmouseover=function() {
+        startMove(10, 0);
+    };
+    
+    oDiv.onmouseout=function() {
+        startMove(-10, -200);
+    };
+
+    function startMove(speed, iTarget) { // 函数传参
+        clearInterval(timer);
+        timer=setInterval(function() {
+                if(oDiv.offsetLeft==iTarget) {
+                    clearInterval(timer);
+                }
+
+                else {
+                    oDiv.style.left=oDiv.offsetLeft+speed+'px'; // 把速度设置为变量
+                };
+        }, 30);
+    };
+    
+    //function startMove2() {
+        clearInterval(timer);
+        timer=setInterval(function() {
+                if(oDiv.offsetLeft==-200) {
+                    clearInterval(timer);
+                }
+
+                else {
+                    oDiv.style.left=oDiv.offsetLeft-10+'px';
+                };
+        }, 30);
+    };//
+    */
+};
+</script>
+</head>
+<body>
+    <div id='div1'>
+        <span> 分享到 </span> 
+    </div>
+</body>
+</html>
+
+
