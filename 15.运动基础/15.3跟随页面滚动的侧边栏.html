@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>无标题文档</title>
 <style>
-#div1 {width:100px; height:150px; background:red; position:absolute; right:0; bottom:0;}
+#div1 {width:100px; height:250px; background:red; position:absolute; right:0; bottom:0;}
 </style>
 <script>
 window.onscroll=function ()
@@ -40,7 +40,366 @@ function startMove(iTarget)
 </head>
 <body style='height: 2000px;'>
     <div id='div1'>
+                    <ul>
+                <li><a href="#ymzz"><strong> 幼苗种植 </strong></a></li>
+                <li><a href="#lidi"><strong> 犁地 </strong></a></li>
+                <li><a href="#dimo"><strong> 地膜 </strong></a></li>
+                <li><a href="#guangai"><strong> 灌溉 </strong></a></li>
+                <li><a href="#shifei"><strong> 施肥 </strong></a></li>
+                <li><a href="#penyao"><strong> 喷药 </strong></a></li>
+                <li><a href="#dajia"><strong> 搭架 </strong></a></li>
+                <li><a href="#caizhai"><strong> 采摘 </strong></a></li>
+            </ul>
     </div>
+        <div class="container-fluid">
+        <div class="row" id="banner">
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" 
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">切换导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="home.html">
+                            <img alt="智慧农业" src="img/zhihuinongye.png" id="logo">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a> 定额库输入 </a></li>
+                            <li><a href="dek_view.html"> 定额库查看 </a></li>
+                            <li><a href="dek_update.html"> 定额库更新 </a></li>
+                            <li><a href="zuowu.html"> 作物查询 </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <h1 id="year">年份选择</h1>
+                    <select  id="year-select" class="form-control">
+                        <option selected="selected" value=2015> 2015年</option>
+                        <option value=2014> 2014年</option>
+                        <option value=2013> 2013年</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="#ymzz"><strong> 幼苗种植 </strong></a></li>
+                <li><a href="#lidi"><strong> 犁地 </strong></a></li>
+                <li><a href="#dimo"><strong> 地膜 </strong></a></li>
+                <li><a href="#guangai"><strong> 灌溉 </strong></a></li>
+                <li><a href="#shifei"><strong> 施肥 </strong></a></li>
+                <li><a href="#penyao"><strong> 喷药 </strong></a></li>
+                <li><a href="#dajia"><strong> 搭架 </strong></a></li>
+                <li><a href="#caizhai"><strong> 采摘 </strong></a></li>
+            </ul>
+        </div>
+        <div class="row" id="ymzz">
+            <div class="col-sm-6">
+                <h2 >幼苗种植</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label >名称</label>
+                        <input  id="name1" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-6"> 
+                        <label >临时工</label>
+                        <input id="linshigong1" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>技术工</label>
+                        <input id="jishugong1" class="form-control"/>
+                    </div>
+                    <div class="col-sm-6">  
+                        <label>种子及幼苗消耗</label>
+                        <input id="xiaohao1" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" id="btn1" class="btn btn-success">更新幼苗种植</button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <img alt="幼苗种植" src="img/youmiao.jpg">
+            </div>
+        </div>
+        <div class="row" id="lidi">
+            <div class="col-sm-12">
+                <h2 >犁地</h2>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>名称</label>
+                        <input type="text"  id="name2" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <label >临时工</label>
+                        <input id="linshigong2" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>技术工</label>
+                        <input id="jishugong2" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>8.8kw拖拉机</label>
+                        <input id="jiqi1" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-sm-3">
+                        <label>4.4-5.9kw拖拉机</label>
+                        <input id="jiqi2" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>2.2-3.7kw拖拉机</label>
+                        <input id="jiqi3" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="row" style="padding:10px">
+                    <button type="button" id="btn2" class="btn btn-success">更新犁地</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" id="dimo">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 >地膜</h2>	
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label >临时工</label>
+                                <input id="linshigong3" class="form-control"></input>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>技术工</label>
+                                <input id="jishugong3" class="form-control"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>地膜材料消耗</label>
+                                <input id="xiaohao3" class="form-control"/>
+                            </div>
+                        </div>    
+                        <div class="row" style="padding:10px">	 
+                            <button type="button" id="btn3" class="btn btn-success">更新地膜</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6" id="guangai">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 >灌溉</h2>
+                        <div class="row" >
+                            <div class="col-sm-3">
+                                <label >名称</label>
+                                <input  id="name4" class="form-control" >
+                            </div>
+                            <div class="col-sm-3">
+                                <label >临时工</label>
+                                <input id="linshigong4" class="form-control"></input>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>技术工</label>
+                                <input id="jishugong4" class="form-control"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>水量消耗</label>
+                                <input id="xiaohao4" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row" style="padding:10px">	 
+                            <button type="button" id="btn4" class="btn btn-success">更新灌溉</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="shifei">
+            <div class="col-sm-12">
+                <h2 >施肥</h2>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>名称</label>
+                        <input  id="name5" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <label >临时工</label>
+                        <input id="linshigong5" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>技术工</label>
+                        <input id="jishugong5" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>有机无机复合肥</label>
+                        <input id="yjwjfh" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-sm-3">
+                        <label>俄罗斯高浓度复合肥</label>
+                        <input id="elsgnd" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>尿素</label>
+                        <input id="ns" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>磷酸二铵</label>
+                        <input id="lsen" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>硫酸钾</label>
+                        <input id="lsj" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" style="padding-top:10px">
+                    <div class="col-sm-3">
+                        <label>磷肥</label>
+                        <input id="lf" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>有机肥</label>
+                        <input id="yjf" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+                <div class="row" style="padding:10px">
+                    <button type="button" id="btn5" class="btn btn-success">更新施肥</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="penyao">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <h2 >喷药</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <label >名称</label>
+                        <input   id="name6"  class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-sm-offset-3">
+                        <label >临时工</label>
+                        <input id="linshigong6" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>技术工</label>
+                        <input id="jishugong6" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-sm-offset-3">
+                        <label>除草剂</label>
+                        <input id="ccj" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>灭虫剂</label>
+                        <input id="mcj" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-sm-offset-3">
+                        <button type="button" id="btn6" class="btn btn-success">更新喷药</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="dajia">
+            <div class="col-sm-12">
+                <h2 >搭架</h2>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <label>名称</label>
+                        <input  id="name7" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-sm-offset-3">
+                        <label >临时工</label>
+                        <input id="linshigong7" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>技术工</label>
+                        <input id="jishugong7" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>竹竿15mm</label>
+                                <input id="zhugan15" class="form-control"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>竹竿30mm</label>
+                                <input id="zhugan30" class="form-control"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>麻绳</label>
+                                <input id="masheng" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <button type="button" id="btn7" class="btn btn-success">更新搭架</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="caizhai">
+            <div class="col-sm-12">
+                <h2 >采摘</h2>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>名称</label>
+                        <input type="text"  id="name8" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <label >临时工</label>
+                        <input id="linshigong8" class="form-control"></input>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>技术工</label>
+                        <input id="jishugong8" class="form-control"/>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>	
+                <div class="row" style="padding:10px">
+                    <button type="button" id="btn8" class="btn btn-success">更新采摘</button>
+                </div>
+            </div>
+        </div>
+        <div class="to-top" title="回到顶部">  
+            <div class="arrow"></div>  
+            <div class="stick"></div>  
+        </div>  
+    </div>
+    <script >
+    $.fn.inital();
+    </script>
 </body>
 </html>
 
